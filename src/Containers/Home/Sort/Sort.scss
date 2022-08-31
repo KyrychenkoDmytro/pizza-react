@@ -1,6 +1,7 @@
 @import '../../../scss/variables';
 
 .Sort {
+  min-width: 160px;
   position: relative;
   &__label {
     display: flex;
@@ -17,6 +18,7 @@
     span {
       color: $orange;
       border-bottom: 1px dashed $orange;
+      letter-spacing: .6px;
       cursor: pointer;
     }
   }

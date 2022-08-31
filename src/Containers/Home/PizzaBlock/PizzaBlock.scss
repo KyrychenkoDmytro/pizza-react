@@ -36,11 +36,13 @@
             }
 
             li {
-                padding: 8px;
+                line-height: 35px;
+                padding: 0 5px;
                 flex: 1;
                 cursor: pointer;
                 font-weight: 600;
-                font-size: 14px;
+                font-size: 15px;
+                letter-spacing: .1px;
                 @include noselect();
 
                 &.active {
@@ -56,7 +58,7 @@
     &__bottom {
         display: flex;
         align-items: center;
-        justify-content: space-between;
+        justify-content: space-around;
         margin-top: 20px;
     }
 

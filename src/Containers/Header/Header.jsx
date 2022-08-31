@@ -7,13 +7,13 @@ const Header = () => {
                 <div className="Header__logo">
                     <img width="38" src="./img/pizza-logo.svg" alt="Pizza logo" />
                     <div>
-                        <h1>React Pizza</h1>
-                        <p>самая вкусная пицца во вселенной</p>
+                        <h1>Best Pizza</h1>
+                        <p>You won't find better pizza!</p>
                     </div>
                 </div>
                 <div className="Header__cart">
                     <a href="/cart.html" className="button button--cart">
-                        <span>520 ₽</span>
+                        <span>520 ₴</span>
                         <div className="button__delimiter"></div>
                         <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path

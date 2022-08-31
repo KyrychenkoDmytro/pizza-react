@@ -3,8 +3,10 @@ import Header from '../Header/Header';
 import Categories from './Categories/Categories';
 import Sort from './Sort/Sort';
 import PizzaBlock from './PizzaBlock/PizzaBlock';
+import pizza from '../../pizza.json';
 
 const Home = () => {
+    console.log(pizza);
     return (
         <div className="Home">
             <Header />
@@ -14,12 +16,9 @@ const Home = () => {
                         <Categories />
                         <Sort />
                     </div>
-                    <h2 className="content__title">Все пиццы</h2>
+                    <h2 className="content__title">All pizzas</h2>
                     <div className="content__items">
-                        <PizzaBlock />
-                        <PizzaBlock />
-                        <PizzaBlock />
-                        <PizzaBlock />
+                        {pizza.map((item) => <PizzaBlock key={item.id} {...item}/>)}
                     </div>
                 </div>
             </div>
