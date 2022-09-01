@@ -11,25 +11,17 @@ body {
   margin: 50px auto;
   border-radius: 10px;
   max-width: 1400px;
-}
-
-.content {
-  padding: 40px 0;
-
-  &__title {
-    margin: 35px 0;
+  @media (max-width: 1099px) {
+    width: calc(100vw - 60px);
+    margin: 30px auto;
   }
-
-  &__items {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+  @media (max-width: 819px) {
+    width: calc(100vw - 40px);
+    margin: 20px auto;
   }
-
-  &__top {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  @media (max-width: 499px) {
+    width: calc(100vw - 20px);
+    margin: 10px auto;
   }
 }
 
@@ -43,6 +35,9 @@ body {
     .content__title {
       margin: 0;
     }
+  }
+  @media (max-width: 819px) {
+    width: 94%;
   }
 }
 
@@ -286,7 +281,7 @@ body {
       color: #777777;
     }
 
-    icon {
+    span {
       position: relative;
       top: 2px;
     }

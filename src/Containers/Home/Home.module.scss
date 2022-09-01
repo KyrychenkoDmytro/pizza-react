@@ -1,0 +1,37 @@
+.Home {
+  padding: 40px 0;
+  @media (max-width: 499px) {
+    padding: 20px 0;
+  }
+
+  .choice {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    @media (max-width: 1099px) {
+      flex-direction: column-reverse;
+    }
+
+  }
+
+  .title {
+    margin: 50px 0;
+    font-size: 40px;
+
+    @media (max-width: 819px) {
+      margin: 40px 0;
+      font-size: 32px;
+    }
+  }
+
+  .items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    @media (max-width: 819px) {
+      justify-content: space-around;
+    }
+  }
+}

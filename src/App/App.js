@@ -1,16 +1,25 @@
 import './App.scss';
+import Header from '../Containers/Header/Header'
 import Home from '../Containers/Home/Home';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Cart from '../Containers/Cart/Cart';
+import NotFound from '../Containers/NotFound/NotFound';
+
+import { Routes, Route } from 'react-router-dom';
 
 function App() {
   return (
     <div className="App">
       <div className="wrapper">
-        <Router>
-          <Routes>
-            <Route path="/" element={<Home />} />
-          </Routes>
-        </Router>
+        <Header />
+        <div className="content">
+          <div className="container">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/cart" element={<Cart />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </div>
+        </div>
       </div>
     </div>
   );

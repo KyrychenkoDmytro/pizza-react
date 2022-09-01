@@ -3,7 +3,12 @@
 .Sort {
   min-width: 160px;
   position: relative;
-  &__label {
+
+  @media (max-width: 1099px) {
+    margin-bottom: 20px;
+  }
+
+  label {
     display: flex;
     align-items: center;
 
@@ -23,7 +28,7 @@
     }
   }
 
-  &__popup {
+  .popup {
     position: absolute;
     right: 0;
     margin-top: 15px;
@@ -36,6 +41,7 @@
 
     ul {
       overflow: hidden;
+
       li {
         padding: 12px 20px;
         cursor: pointer;

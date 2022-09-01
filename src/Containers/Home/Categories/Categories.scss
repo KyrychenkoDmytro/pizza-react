@@ -1,8 +1,14 @@
 @import '../../../scss/variables';
 
 .Categories {
+  @media (max-width: 819px) {
+    width: 100%;
+    overflow: auto;
+  }
   ul {
     display: flex;
+    justify-content: space-around;
+    width: 700px;
 
     li {
       background-color: #f9f9f9;
@@ -25,6 +31,9 @@
       &.active {
         background-color: #282828;
         color: #fff;
+      }
+      @media (max-width: 819px) {
+        padding: 10px 20px;
       }
     }
   }
