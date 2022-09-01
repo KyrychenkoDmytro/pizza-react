@@ -1,14 +1,14 @@
 import './PizzaBlock.scss';
 import { useState } from 'react';
 
-const PizzaBlock = ({ title, types, sizes, price }) => {
+const PizzaBlock = ({ title, types, sizes, price, imageUrl }) => {
     const allTypes = ['Standart', 'With cheese sides'];
     const [type, setType] = useState(0);
     const [size, setSize] = useState(0);
     return (
         <div className="PizzaBlock">
             <img className="PizzaBlock__image"
-                src="https://dodopizza-a.akamaihd.net/static/Img/Products/Pizza/ru-RU/b750f576-4a83-48e6-a283-5a8efb68c35d.jpg"
+                src={imageUrl}
                 alt="Pizza" />
             <h4 className="PizzaBlock__title">{title}</h4>
             <div className="PizzaBlock__selector">
