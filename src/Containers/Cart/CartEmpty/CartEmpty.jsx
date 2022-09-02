@@ -3,7 +3,7 @@ import styles from './CartEmpty.module.scss';
 
 export const CartEmpty = () => {
     return (
-        <div className={styles.root}>
+        <div className={styles.CartEmpty}>
             <h2>Cart empty <span>😕</span></h2>
             <p>
             Make your choice on the main page.

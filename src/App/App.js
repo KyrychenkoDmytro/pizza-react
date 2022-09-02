@@ -11,7 +11,6 @@ function App() {
     <div className="App">
       <div className="wrapper">
         <Header />
-        <div className="content">
           <div className="container">
             <Routes>
               <Route path="/" element={<Home />} />
@@ -21,7 +20,6 @@ function App() {
           </div>
         </div>
       </div>
-    </div>
   );
 }
 

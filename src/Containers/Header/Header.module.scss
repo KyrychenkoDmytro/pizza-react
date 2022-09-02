@@ -11,15 +11,12 @@
 
   @media (max-width: 499px) {
     flex-direction: column;
+    gap: 10px;
     padding: 20px 0;
   }
 
   a {
     height: 51px;
-
-    &:first-child {
-      margin-bottom: 15px;
-    }
 
     .logo {
       display: flex;
