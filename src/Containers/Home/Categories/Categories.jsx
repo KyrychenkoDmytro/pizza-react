@@ -1,16 +1,20 @@
 import style from './Categories.module.scss';
-import { useState } from 'react';
+
+import { useDispatch, useSelector } from 'react-redux';
+import { saveCategoryId } from '../../../store/reducers/sortingSlice';
 
 const Categories = () => {
     const allCategories = ['All', 'Meat', 'Vegetable', 'Seafood', 'Сheese', 'Vegetarian'];
-    const [activeCategory, setActiveCategory] = useState(0);
+    const dispatch = useDispatch();
+    const categoryId = useSelector(state => state.sorting.categoryId);
+
     return (
         <div className={style.Categories}>
             <ul>
                 {allCategories.map((item, i) => (
                     <li
-                        className={activeCategory === i ? `${style.active}` : ''}
-                        onClick={() => setActiveCategory(i)}
+                        className={categoryId === i ? `${style.active}` : ''}
+                        onClick={() => dispatch(saveCategoryId(i))}
                         key={item}
                     >
                         {item}

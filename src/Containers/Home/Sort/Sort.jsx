@@ -1,13 +1,21 @@
 import style from './Sort.module.scss';
 import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { saveSortId } from '../../../store/reducers/sortingSlice';
 
 const Sort = () => {
-    const allSorts = ['Popularity', 'Price', 'Alphabet'];
-    const [sortActive, setSortActive] = useState(0);
+    const allSorts = [
+        { name: 'Popularity', property: 'rating' },
+        { name: 'Price', property: 'price' },
+        { name: 'Alphabet', property: 'title' }
+    ];
     const [open, setOpen] = useState(false);
 
+    const dispatch = useDispatch();
+    const sortName = useSelector(state => state.sorting.sortId.name);
+
     const sortSelection = (i) => {
-        setSortActive(i);
+        dispatch(saveSortId(allSorts[i]));
         setOpen(!open);
     }
 
@@ -20,18 +28,18 @@ const Sort = () => {
                         fill="#2C2C2C" />
                 </svg>
                 <b>Sort by:</b>
-                <span onClick={() => setOpen(!open)}>{allSorts[sortActive]}</span>
+                <span onClick={() => setOpen(!open)}>{sortName}</span>
             </label>
             {open &&
                 <div className={style.popup}>
                     <ul>
                         {allSorts.map((item, i) => (
                             <li
-                                key={item}
-                                className={sortActive === i ? 'active' : ''}
+                                key={item.name}
+                                className={sortName === item.name ? `${style.active}` : ''}
                                 onClick={() => sortSelection(i)}
                             >
-                                {item}
+                                {item.name}
                             </li>
                         ))}
                     </ul>
