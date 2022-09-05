@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom';
-import styles from './NotFound.module.scss';
+import styless from './NotFound.module.scss';
 
 export const NotFound = () => {
     return (
-        <div className={styles.NotFound}>
+        <div className={styless.NotFound}>
             <h2>Page Not Found <span>😕</span></h2>
             <p>
                 The page you were looking for could not be found. It may have been deleted, renamed, or didn't exist at all.

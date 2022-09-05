@@ -1,4 +1,4 @@
-import style from './PizzaBlock.module.scss';
+import styles from './PizzaBlock.module.scss';
 import { useState } from 'react';
 
 const PizzaBlock = ({ title, types, sizes, price, imageUrl }) => {
@@ -6,16 +6,16 @@ const PizzaBlock = ({ title, types, sizes, price, imageUrl }) => {
     const [type, setType] = useState(0);
     const [size, setSize] = useState(0);
     return (
-        <div className={style.PizzaBlock}>
+        <div className={styles.PizzaBlock}>
             <img
                 src={imageUrl}
                 alt="Pizza" />
             <h4>{title}</h4>
-            <div className={style.select_wrapper}>
+            <div className={styles.select_wrapper}>
                 <ul>
                     {types.map((item) => (
                         <li
-                            className={type === item ? `${style.active}` : ''}
+                            className={type === item ? `${styles.active}` : ''}
                             onClick={() => setType(item)}
                             key={item}
                         >
@@ -26,7 +26,7 @@ const PizzaBlock = ({ title, types, sizes, price, imageUrl }) => {
                 <ul>
                     {sizes.map((item, i) => (
                         <li
-                            className={size === i ? `${style.active}` : ''}
+                            className={size === i ? `${styles.active}` : ''}
                             onClick={() => setSize(i)}
                             key={item}
                         >
@@ -35,8 +35,8 @@ const PizzaBlock = ({ title, types, sizes, price, imageUrl }) => {
                     ))}
                 </ul>
             </div>
-            <div className={style.add_to_cart}>
-                <div className={style.price}>{`${price} ₴`}</div>
+            <div className={styles.add_to_cart}>
+                <div className={styles.price}>{`${price} ₴`}</div>
                 <div className="button button--outline button--add">
                     <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path

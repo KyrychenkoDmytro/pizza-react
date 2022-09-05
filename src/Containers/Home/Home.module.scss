@@ -1,5 +1,6 @@
 .Home {
   padding: 40px 0;
+  border-top: 1px solid #f6f6f6;
   @media (max-width: 499px) {
     padding: 20px 0;
   }
@@ -28,7 +29,8 @@
   .items {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-evenly;
+    gap: 0 20px;
 
     @media (max-width: 819px) {
       justify-content: space-around;

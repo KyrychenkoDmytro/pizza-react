@@ -1,0 +1,44 @@
+@import '../../../scss/variables';
+
+.Paginate {
+    display: flex;
+    justify-content: flex-start;
+    gap: 10px;
+
+    li {
+        display: block;
+        a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            border: 1px solid $orange;
+            background-color: #fff;
+            font-size: 16px;
+            color: $orange;
+            cursor: pointer;
+            @include noselect();
+
+            &:hover {
+                color: #fff;
+                background-color: $orange;
+                font-size: 20px;
+            }
+        }
+    }
+
+    :global {
+
+        .selected {
+
+            a {
+                color: #fff;
+                background-color: $orange;
+                font-size: 20px;
+            }
+        }
+    }
+
+}

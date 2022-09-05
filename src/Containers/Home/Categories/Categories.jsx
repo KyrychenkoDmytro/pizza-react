@@ -1,4 +1,4 @@
-import style from './Categories.module.scss';
+import styles from './Categories.module.scss';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { saveCategoryId } from '../../../store/reducers/sortingSlice';
@@ -9,11 +9,11 @@ const Categories = () => {
     const categoryId = useSelector(state => state.sorting.categoryId);
 
     return (
-        <div className={style.Categories}>
+        <div className={styles.Categories}>
             <ul>
                 {allCategories.map((item, i) => (
                     <li
-                        className={categoryId === i ? `${style.active}` : ''}
+                        className={categoryId === i ? `${styles.active}` : ''}
                         onClick={() => dispatch(saveCategoryId(i))}
                         key={item}
                     >

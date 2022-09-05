@@ -1,11 +1,17 @@
-import style from './Header.module.scss';
-import { Link } from 'react-router-dom';
+import styles from './Header.module.scss';
+import Search from '../Search/Search';
+
+
+import { Link, useLocation } from 'react-router-dom';
+
 
 const Header = () => {
+    const location = useLocation();
     return (
-        <div className={style.Header}>
+        <>
+            <div className={styles.Header}>
                 <Link to="/">
-                    <div className={style.logo}>
+                    <div className={styles.logo}>
                         <img width="38" src="./img/pizza-logo.svg" alt="Pizza logo" />
                         <div>
                             <h1>Best Pizza</h1>
@@ -30,6 +36,11 @@ const Header = () => {
                     <span>3</span>
                 </Link>
             </div>
+            {location.pathname === '/'
+                ? <Search />
+                : ''
+            }
+        </>
     );
 }
 

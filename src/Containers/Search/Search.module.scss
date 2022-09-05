@@ -1,0 +1,49 @@
+  .Search {
+      position: relative;
+      max-width: 400px;
+      margin: 40px 0 40px 5%;
+      @media (max-width: 499px) {
+        margin: 20px 1.5% 20px 1.5%;
+        max-width: 290px;
+      }
+
+
+      .search_icon {
+          position: absolute;
+          top: 12px;
+          left: 10px;
+          width: 22px;
+          height: 22px;
+          opacity: .4;
+      }
+
+      input {
+          font-size: 18px;
+          border: 1px solid rgba(0, 0, 0, .3);
+          border-radius: 10px;
+          padding: 12px 40px;
+          width: 400px;
+
+          @media (max-width: 499px) {
+              width: 290px;
+          }
+
+          &:focus {
+              border: 2px solid rgba(0, 0, 0, .5);
+          }
+      }
+
+      .clear_value {
+          width: 18px;
+          height: 18px;
+          position: absolute;
+          right: 10px;
+          top: 15px;
+          opacity: .3;
+          cursor: pointer;
+
+          &:hover {
+              opacity: .8;
+          }
+      }
+  }

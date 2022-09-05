@@ -1,4 +1,4 @@
-import style from './Sort.module.scss';
+import styles from './Sort.module.scss';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { saveSortId } from '../../../store/reducers/sortingSlice';
@@ -20,7 +20,7 @@ const Sort = () => {
     }
 
     return (
-        <div className={style.Sort}>
+        <div className={styles.Sort}>
             <label>
                 <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
@@ -31,12 +31,12 @@ const Sort = () => {
                 <span onClick={() => setOpen(!open)}>{sortName}</span>
             </label>
             {open &&
-                <div className={style.popup}>
+                <div className={styles.popup}>
                     <ul>
                         {allSorts.map((item, i) => (
                             <li
                                 key={item.name}
-                                className={sortName === item.name ? `${style.active}` : ''}
+                                className={sortName === item.name ? `${styles.active}` : ''}
                                 onClick={() => sortSelection(i)}
                             >
                                 {item.name}
