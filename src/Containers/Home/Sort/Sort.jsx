@@ -3,12 +3,14 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { saveSortId } from '../../../store/reducers/sortingSlice';
 
+export const allSorts = [
+    { name: 'Popularity', property: 'rating' },
+    { name: 'Price', property: 'price' },
+    { name: 'Alphabet', property: 'title' }
+];
+
 const Sort = () => {
-    const allSorts = [
-        { name: 'Popularity', property: 'rating' },
-        { name: 'Price', property: 'price' },
-        { name: 'Alphabet', property: 'title' }
-    ];
+   
     const [open, setOpen] = useState(false);
 
     const dispatch = useDispatch();

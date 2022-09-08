@@ -22,11 +22,16 @@ export const sortingSlice = createSlice({
         },
         saveCurrentPage: (state, action) => {
             state.currentPage = action.payload;
+        },
+        saveUrlParams: (state, action) => {
+            state.currentPage = Number(action.payload.currentPage);
+            state.categoryId = Number(action.payload.categoryId);
+            state.sortId = action.payload.sortId;
         }
     }
 });
 
 
-export const { saveSortId, saveCategoryId, saveSearchValue, saveCurrentPage } = sortingSlice.actions;
+export const { saveSortId, saveCategoryId, saveSearchValue, saveCurrentPage, saveUrlParams } = sortingSlice.actions;
 
 export default sortingSlice.reducer;
