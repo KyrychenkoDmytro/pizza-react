@@ -1,8 +1,10 @@
-import { configureStore } from '@reduxjs/toolkit'
-import sortingReducer from './reducers/sortingSlice'
+import { configureStore } from '@reduxjs/toolkit';
+import homeReducer from './reducers/homeSlice';
+import cartReducer from './reducers/cartSlice';
 
 export const store = configureStore({
   reducer: {
-    sorting: sortingReducer,
+    home: homeReducer,
+    cart: cartReducer,
   },
 })

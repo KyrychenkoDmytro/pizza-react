@@ -1,7 +1,8 @@
 import styles from './Sort.module.scss';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { saveSortId } from '../../../store/reducers/sortingSlice';
+import { saveSortId } from '../../../store/reducers/homeSlice';
+import { useEffect } from 'react';
 
 export const allSorts = [
     { name: 'Popularity', property: 'rating' },
@@ -10,11 +11,22 @@ export const allSorts = [
 ];
 
 const Sort = () => {
-   
+    const sortRef = useRef();
     const [open, setOpen] = useState(false);
 
     const dispatch = useDispatch();
-    const sortName = useSelector(state => state.sorting.sortId.name);
+    const sortName = useSelector(state => state.home.sortId.name);
+
+    useEffect(() => {
+        const hadleClickOutsideClosePopup = (e) => {
+            if (!e.path.includes(sortRef.current)) {
+                setOpen(false);
+            }
+        }
+        document.body.addEventListener('click', hadleClickOutsideClosePopup);
+
+        return () => document.body.removeEventListener('click', hadleClickOutsideClosePopup);
+    }, []);
 
     const sortSelection = (i) => {
         dispatch(saveSortId(allSorts[i]));
@@ -22,7 +34,7 @@ const Sort = () => {
     }
 
     return (
-        <div className={styles.Sort}>
+        <div ref={sortRef} className={styles.Sort}>
             <label>
                 <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path

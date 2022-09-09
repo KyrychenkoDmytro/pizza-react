@@ -8,7 +8,7 @@ import Skeleton from './PizzaBlock/Skeleton';
 import axios from '../../axios';
 import { useEffect, useState, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { saveUrlParams } from '../../store/reducers/sortingSlice';
+import { saveUrlParams } from '../../store/reducers/homeSlice';
 import qs from 'qs';
 import { useNavigate } from 'react-router-dom';
 
@@ -22,12 +22,12 @@ const Home = () => {
     const [pizzas, setPizzas] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
 
-    const categoryId = useSelector(state => state.sorting.categoryId);
-    const sortProperty = useSelector(state => state.sorting.sortId.property);
-    const searchValue = useSelector(state => state.sorting.searchValue);
-    const currentPage = useSelector(state => state.sorting.currentPage);
+    const categoryId = useSelector(state => state.home.categoryId);
+    const sortProperty = useSelector(state => state.home.sortId.property);
+    const searchValue = useSelector(state => state.home.searchValue);
+    const currentPage = useSelector(state => state.home.currentPage);
 
-// If there was a first render, write the sort parameters to a string.
+    // If there was a first render, write the sort parameters to a string.
     useEffect(() => {
         if (isMounted.current) {
             const queryString = qs.stringify({
@@ -54,7 +54,7 @@ const Home = () => {
             isSearch.current = true;
         }
     }, [dispatch]);
-   
+
     // Get pizzas
     useEffect(() => {
         const sortBy = `?sortBy=${sortProperty}`;

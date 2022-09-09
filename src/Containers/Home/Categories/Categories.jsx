@@ -1,12 +1,12 @@
 import styles from './Categories.module.scss';
 
 import { useDispatch, useSelector } from 'react-redux';
-import { saveCategoryId } from '../../../store/reducers/sortingSlice';
+import { saveCategoryId } from '../../../store/reducers/homeSlice';
 
 const Categories = () => {
     const allCategories = ['All', 'Meat', 'Vegetable', 'Seafood', 'Сheese', 'Vegetarian'];
     const dispatch = useDispatch();
-    const categoryId = useSelector(state => state.sorting.categoryId);
+    const categoryId = useSelector(state => state.home.categoryId);
 
     return (
         <div className={styles.Categories}>

@@ -7,8 +7,8 @@ const initialState = {
     currentPage: 1,
 }
 
-export const sortingSlice = createSlice({
-    name: 'sorting',
+export const homeSlice = createSlice({
+    name: 'home',
     initialState,
     reducers: {
         saveSortId: (state, action) => {
@@ -32,6 +32,6 @@ export const sortingSlice = createSlice({
 });
 
 
-export const { saveSortId, saveCategoryId, saveSearchValue, saveCurrentPage, saveUrlParams } = sortingSlice.actions;
+export const { saveSortId, saveCategoryId, saveSearchValue, saveCurrentPage, saveUrlParams } = homeSlice.actions;
 
-export default sortingSlice.reducer;
+export default homeSlice.reducer;

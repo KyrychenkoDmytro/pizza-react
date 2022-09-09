@@ -1,6 +1,6 @@
 import styles from './Search.module.scss';
 
-import { saveSearchValue } from '../../store/reducers/sortingSlice';
+import { saveSearchValue } from '../../store/reducers/homeSlice';
 import { useDispatch } from 'react-redux';
 import { useState, useMemo, useRef } from 'react';
 import debounce from 'lodash.debounce';

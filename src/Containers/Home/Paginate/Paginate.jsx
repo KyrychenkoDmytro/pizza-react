@@ -1,7 +1,7 @@
 import styles from './Paginate.module.scss';
 import ReactPaginate from 'react-paginate';
 
-import { saveCurrentPage } from '../../../store/reducers/sortingSlice';
+import { saveCurrentPage } from '../../../store/reducers/homeSlice';
 import { useDispatch } from 'react-redux';
 
 const Paginate = () => {
