@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
     sortId: { name: 'Popularity', property: 'rating' },
@@ -28,7 +28,7 @@ export const homeSlice = createSlice({
             state.categoryId = Number(action.payload.categoryId);
             state.sortId = action.payload.sortId;
         }
-    }
+    },
 });
 
 

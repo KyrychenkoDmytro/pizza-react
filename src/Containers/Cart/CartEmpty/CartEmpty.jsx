@@ -8,7 +8,7 @@ export const CartEmpty = () => {
             <p>
             Make your choice on the main page.
             </p>
-            <img src="/img/empty-cart.png" alt="Not found" />
+            <img src="./img/empty-cart.png" alt="Not found" />
             <Link to="/">
                 <button className='button button--black'>To main</button>
             </Link>
