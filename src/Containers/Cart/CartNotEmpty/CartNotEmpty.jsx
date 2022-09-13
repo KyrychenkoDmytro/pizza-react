@@ -1,5 +1,6 @@
 import styles from './CartNotEmpty.module.scss';
 import CartItem from './CartItem/CartItem';
+import FooterButtons from './FooterButtons/FooterButtons';
 
 import { useSelector, useDispatch } from 'react-redux';
 import { clearAllCart } from '../../../store/reducers/cartSlice';
@@ -39,17 +40,7 @@ const CartNotEmpty = () => {
                     <span> Total pizzas: <b>{totalCount} pcs.</b> </span>
                     <span> Total price: <b>{totalPrice} ₴</b> </span>
                 </div>
-                <div className={styles.buttons_wrapper}>
-                    <a href="/" className={`button button--outline ${styles.go_back_btn}`}>
-                        <svg width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M7 13L1 6.93015L6.86175 1" stroke="#D3D3D3" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                        </svg>
-                        <span>Go back</span>
-                    </a>
-                    <div className={`button ${styles.pay_btn}`}>
-                        <span>Pay now</span>
-                    </div>
-                </div>
+                <FooterButtons />
             </div>
         </div>
     );

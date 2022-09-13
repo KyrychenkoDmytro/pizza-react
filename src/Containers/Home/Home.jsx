@@ -74,7 +74,6 @@ const Home = () => {
                     : status === 'loading'
                         ? [...new Array(4)].map((_, i) => <Skeleton key={i} />) //fake array
                         : items.map((item) => <PizzaBlock key={item.id} {...item} />)
-
                 }
             </div>
             <Paginate />

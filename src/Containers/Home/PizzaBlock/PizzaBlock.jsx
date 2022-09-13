@@ -1,7 +1,10 @@
 import styles from './PizzaBlock.module.scss';
+import { addPizzaToCart } from '../../../store/reducers/cartSlice';
+
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addPizzaToCart } from '../../../store/reducers/cartSlice';
+import { Link } from 'react-router-dom';
+
 
 export const allTypes = ['Standart', 'With cheese sides'];
 
@@ -18,9 +21,7 @@ const PizzaBlock = (props) => {
 
     return (
         <div className={styles.PizzaBlock}>
-            <img
-                src={imageUrl}
-                alt="Pizza" />
+            <Link to={`/${id}`}><img src={imageUrl} alt="Pizza" /></Link>
             <h4>{title}</h4>
             <div className={styles.select_wrapper}>
                 <ul>
