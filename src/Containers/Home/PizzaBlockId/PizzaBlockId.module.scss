@@ -2,12 +2,15 @@
 
 .PizzaBlockId {
     padding: 40px 0;
+
     @media (max-width: 1099px) {
         padding: 20px 0;
     }
+
     .wrapper {
         display: flex;
         justify-content: space-between;
+
         @media (max-width: 565px) {
             flex-direction: column;
             align-items: center;
@@ -18,15 +21,18 @@
             width: 420px;
             height: 420px;
             margin: auto 0;
+
             @media (max-width: 1099px) {
                 width: 320px;
                 height: 320px;
             }
+
             @media (max-width: 819px) {
                 width: 260px;
                 height: 260px;
-                
+
             }
+
             @media (max-width: 675px) {
                 width: 200px;
                 height: 200px;
@@ -38,9 +44,11 @@
             display: flex;
             flex-direction: column;
             padding: 40px 0;
+
             @media (max-width: 1099px) {
                 padding: 20px 0;
             }
+
             @media (max-width: 675px) {
                 padding: 0;
             }
@@ -50,6 +58,7 @@
                 text-align: center;
                 color: #181818;
                 margin-bottom: 30px;
+
                 @media (max-width: 675px) {
                     font-size: 26px;
                     margin-bottom: 15px;
@@ -61,30 +70,37 @@
                 color: #7b7b7b;
                 margin-bottom: 15px;
                 margin-left: 20px;
+
                 @media (max-width: 675px) {
                     font-size: 20px;
                 }
             }
+
             ul {
                 margin-left: 80px;
                 margin-bottom: 30px;
-                li{
+
+                li {
                     font-size: 22px;
                     letter-spacing: 1px;
                     list-style: initial;
+
                     @media (max-width: 675px) {
                         font-size: 18px;
                     }
                 }
             }
+
             span {
                 font-weight: 600;
                 font-size: 24px;
                 margin-left: 20px;
+
                 @media (max-width: 675px) {
                     font-size: 19px;
                 }
-                b{
+
+                b {
                     color: $orange;
                 }
             }

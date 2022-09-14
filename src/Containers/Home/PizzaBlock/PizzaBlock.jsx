@@ -21,7 +21,7 @@ const PizzaBlock = (props) => {
 
     return (
         <div className={styles.PizzaBlock}>
-            <Link to={`/${id}`}><img src={imageUrl} alt="Pizza" /></Link>
+            <Link to={`/pizza/${id}`}><img src={imageUrl} alt="Pizza" /></Link>
             <h4>{title}</h4>
             <div className={styles.select_wrapper}>
                 <ul>
