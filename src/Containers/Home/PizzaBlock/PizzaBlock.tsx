@@ -1,19 +1,31 @@
+import React from 'react';
 import styles from './PizzaBlock.module.scss';
 import { addPizzaToCart } from '../../../store/reducers/cartSlice';
 
-import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 
 export const allTypes = ['Standart', 'With cheese sides'];
 
-const PizzaBlock = (props) => {
+type PizzaBlockProps = {
+    id: string;
+    title: string;
+    types: number[];
+    sizes: number[];
+    price: number;
+    imageUrl: string;
+}
+
+const PizzaBlock: React.FC<PizzaBlockProps> = (props) => {
     const { id, title, types, sizes, price, imageUrl } = props;
-    const [type, setType] = useState(0);
-    const [size, setSize] = useState(0);
+
+    const [type, setType] = React.useState(0);
+    const [size, setSize] = React.useState(0);
+
     const dispatch = useDispatch();
-    const findCount = useSelector(state => state.cart.allPizzas.find(obj => obj.id === id));
+    const findCount = useSelector(// @ts-ignore
+        state => state.cart.allPizzas.find(obj => obj.id === id));
 
     const addToCart = () => {
         dispatch(addPizzaToCart({ ...props, type, size }));

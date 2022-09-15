@@ -1,8 +1,7 @@
+import React from 'react';
 import styles from './Sort.module.scss';
-import { useState, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { saveSortId } from '../../../store/reducers/homeSlice';
-import { useEffect } from 'react';
 
 export const allSorts = [
     { name: 'Popularity', property: 'rating' },
@@ -10,16 +9,17 @@ export const allSorts = [
     { name: 'Alphabet', property: 'title' }
 ];
 
-const Sort = () => {
-    const sortRef = useRef();
-    const [open, setOpen] = useState(false);
+const Sort: React.FC = () => {
+    const sortRef = React.useRef<HTMLDivElement>(null);
+    const [open, setOpen] = React.useState(false);
 
     const dispatch = useDispatch();
-    const sortName = useSelector(state => state.home.sortId.name);
+    const sortName = useSelector(// @ts-ignore
+        state => state.home.sortId.name);
 
-    useEffect(() => {
-        const hadleClickOutsideClosePopup = (e) => {
-            if (!e.path.includes(sortRef.current)) {
+    React.useEffect(() => {
+        const hadleClickOutsideClosePopup = (event: any) => {
+            if (!event.path.includes(sortRef.current)) {
                 setOpen(false);
             }
         }
@@ -28,7 +28,7 @@ const Sort = () => {
         return () => document.body.removeEventListener('click', hadleClickOutsideClosePopup);
     }, []);
 
-    const sortSelection = (i) => {
+    const sortSelection = (i: number) => {
         dispatch(saveSortId(allSorts[i]));
         setOpen(!open);
     }

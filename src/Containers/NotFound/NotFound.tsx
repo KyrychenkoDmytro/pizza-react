@@ -1,8 +1,9 @@
-import { Link } from 'react-router-dom';
+import React from 'react';
 import styless from './NotFound.module.scss';
-import { useLocation } from 'react-router-dom';
 
-export const NotFound = () => {
+import { Link, useLocation } from 'react-router-dom';
+
+const NotFound: React.FC = () => {
     const location = useLocation();
     
     return (

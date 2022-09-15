@@ -1,10 +1,22 @@
+import React from 'react';
 import styles from './CartItem.module.scss';
 import { allTypes } from '../../../Home/PizzaBlock/PizzaBlock';
 
 import { useDispatch } from 'react-redux';
 import { addPizzaToCart, minusPizzaFromCart, removePizzaFromCart } from '../../../../store/reducers/cartSlice';
 
-const CartItem = (props) => {
+type CartItemProps = {
+    id: string;
+    imageUrl: string;
+    price: number;
+    title: string;
+    type: number;
+    sizes: number[];
+    size: number;
+    count: number;
+}
+
+const CartItem: React.FC<CartItemProps> = (props) => {
     const dispatch = useDispatch();
 
     const { id, imageUrl, price, title, type, sizes, size, count } = props;

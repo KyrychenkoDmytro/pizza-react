@@ -1,16 +1,17 @@
+import React from 'react';
 import styles from './Search.module.scss';
 
 import { saveSearchValue } from '../../store/reducers/homeSlice';
 import { useDispatch } from 'react-redux';
-import { useState, useMemo, useRef } from 'react';
 import debounce from 'lodash.debounce';
 
-const Search = () => {
-    const inputRef = useRef();
+const Search: React.FC = () => {
+    const inputRef = React.useRef<HTMLInputElement>(null);
+    const [value, setValue] = React.useState('');
     const dispatch = useDispatch();
-    const [value, setValue] = useState('');
+    
 
-    const updateSearchValue = useMemo(
+    const updateSearchValue = React.useMemo(
         () => {
             return debounce((str) => {
                 dispatch(saveSearchValue(str));
@@ -19,14 +20,14 @@ const Search = () => {
         [dispatch]
     );
 
-    const onChangeInput = (e) => {
+    const onChangeInput = (e: any) => {
         setValue(e.target.value);
         updateSearchValue(e.target.value);
     }
 
     const onClearInput = () => {
         setValue('');
-        inputRef.current.focus();
+        inputRef.current?.focus();
     }
     return (
         <div className={styles.Search}>

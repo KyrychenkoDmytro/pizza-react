@@ -1,6 +1,7 @@
+import React from 'react';
 import styles from './FooterButtons.module.scss';
 
-const FooterButtons = () => {
+const FooterButtons: React.FC = () => {
     return (
         <div className={styles.FooterButtons}>
             <a href="/" className={`button button--outline ${styles.go_back_btn}`}>

@@ -1,14 +1,16 @@
+import React from 'react';
 import styles from './Header.module.scss';
 import Search from '../Search/Search';
-
 
 import { Link, useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
-const Header = () => {
+const Header: React.FC = () => {
     const location = useLocation();
-    const totalPrice = useSelector(state => state.cart.totalPrice);
-    const totalCount = useSelector(state => state.cart.totalCount);
+    const totalPrice = useSelector(// @ts-ignore
+        state => state.cart.totalPrice);
+    const totalCount = useSelector(// @ts-ignore
+        state => state.cart.totalCount);
     return (
         <>
             <div className={styles.Header}>

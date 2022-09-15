@@ -1,7 +1,9 @@
-import { Link } from 'react-router-dom';
+import React from 'react';
 import styles from './CartEmpty.module.scss';
 
-export const CartEmpty = () => {
+import { Link } from 'react-router-dom';
+
+export const CartEmpty: React.FC = () => {
     return (
         <div className={styles.CartEmpty}>
             <h2>Cart empty <span>😕</span></h2>

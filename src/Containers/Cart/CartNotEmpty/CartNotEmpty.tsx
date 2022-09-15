@@ -1,3 +1,4 @@
+import React from 'react';
 import styles from './CartNotEmpty.module.scss';
 import CartItem from './CartItem/CartItem';
 import FooterButtons from './FooterButtons/FooterButtons';
@@ -5,9 +6,10 @@ import FooterButtons from './FooterButtons/FooterButtons';
 import { useSelector, useDispatch } from 'react-redux';
 import { clearAllCart } from '../../../store/reducers/cartSlice';
 
-const CartNotEmpty = () => {
+const CartNotEmpty: React.FC = () => {
     const dispatch = useDispatch();
-    const { allPizzas, totalPrice, totalCount } = useSelector(state => state.cart);
+    const { allPizzas, totalPrice, totalCount } = useSelector(// @ts-ignore
+        state => state.cart);
 
     const clearCart = () => {
         dispatch(clearAllCart());
@@ -34,7 +36,7 @@ const CartNotEmpty = () => {
                     <span>Clear cart</span>
                 </div>
             </div>
-            {allPizzas.map((item) => <CartItem key={item.id + item.size + item.type} {...item} />)}
+            {allPizzas.map((item: any) => <CartItem key={item.id + item.size + item.type} {...item} />)}
             <div className={styles.cart_footer}>
                 <div className={styles.all_order_info}>
                     <span> Total pizzas: <b>{totalCount} pcs.</b> </span>

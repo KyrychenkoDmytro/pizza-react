@@ -1,12 +1,14 @@
+import React from 'react';
 import styles from './Categories.module.scss';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { saveCategoryId } from '../../../store/reducers/homeSlice';
 
-const Categories = () => {
+const Categories: React.FC = () => {
     const allCategories = ['All', 'Meat', 'Vegetable', 'Seafood', 'Сheese', 'Vegetarian'];
     const dispatch = useDispatch();
-    const categoryId = useSelector(state => state.home.categoryId);
+    const categoryId = useSelector(// @ts-ignore
+        state => state.home.categoryId);
 
     return (
         <div className={styles.Categories}>
