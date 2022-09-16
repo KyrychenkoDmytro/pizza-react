@@ -1,6 +1,14 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
-const initialState = {
+import type { CartItemProps } from '../../../src/Containers/Cart/CartNotEmpty/CartItem/CartItem';
+
+interface CartSliceState {
+    allPizzas: CartItemProps[];
+    totalPrice: number;
+    totalCount: number;
+}
+
+const initialState: CartSliceState = {
     allPizzas: [],
     totalPrice: 0,
     totalCount: 0,
@@ -10,7 +18,7 @@ export const cartSlice = createSlice({
     name: 'cart',
     initialState,
     reducers: {
-        addPizzaToCart: (state, action) => {
+        addPizzaToCart: (state, action: PayloadAction<CartItemProps>) => {
             const findPizza = state.allPizzas.find((obj) => obj.id === action.payload.id);
             if (findPizza) {
                 findPizza.count++;
@@ -26,13 +34,15 @@ export const cartSlice = createSlice({
 
             state.totalCount = state.allPizzas.reduce((sum, item) => item.count + sum, 0);
         },
-        minusPizzaFromCart: (state, action) => {
+        minusPizzaFromCart: (state, action: PayloadAction<string>) => {
             const findPizza = state.allPizzas.find((obj) => obj.id === action.payload);
 
-            if (findPizza.count === 1) {
+            if (findPizza?.count === 1) {
                 state.allPizzas = state.allPizzas.filter((item) => item.id !== findPizza.id);
             } else {
-                findPizza.count--;
+                if(findPizza) {
+                    findPizza.count--;
+                }
             }
 
             state.totalPrice = state.allPizzas.reduce((sum, item) => {
@@ -41,7 +51,7 @@ export const cartSlice = createSlice({
 
             state.totalCount = state.allPizzas.reduce((sum, item) => item.count + sum, 0);
         },
-        removePizzaFromCart: (state, action) => {
+        removePizzaFromCart: (state, action: PayloadAction<string>) => {
             state.allPizzas = state.allPizzas.filter((item) => item.id !== action.payload);
 
             state.totalPrice = state.allPizzas.reduce((sum, item) => {

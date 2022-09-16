@@ -2,11 +2,11 @@ import React from 'react';
 import styles from './Paginate.module.scss';
 import ReactPaginate from 'react-paginate';
 
-import { saveCurrentPage } from '../../../store/reducers/homeSlice';
-import { useDispatch } from 'react-redux';
+import { saveCurrentPage } from '../../../redux/reducers/homeSlice';
+import { useAppDispatch } from '../../../hooks';
 
 const Paginate: React.FC = () => {
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
     return (
         <ReactPaginate
             className={styles.Paginate}
@@ -16,7 +16,6 @@ const Paginate: React.FC = () => {
             pageRangeDisplayed={4}
             pageCount={3}
             previousLabel="<"
-            // renderOnZeroPageCount={null}
         />
     )
 }

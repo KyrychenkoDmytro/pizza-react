@@ -3,13 +3,12 @@ import styles from './CartNotEmpty.module.scss';
 import CartItem from './CartItem/CartItem';
 import FooterButtons from './FooterButtons/FooterButtons';
 
-import { useSelector, useDispatch } from 'react-redux';
-import { clearAllCart } from '../../../store/reducers/cartSlice';
+import { clearAllCart } from '../../../redux/reducers/cartSlice';
+import { useAppDispatch, useAppSelector } from '../../../hooks';
 
 const CartNotEmpty: React.FC = () => {
-    const dispatch = useDispatch();
-    const { allPizzas, totalPrice, totalCount } = useSelector(// @ts-ignore
-        state => state.cart);
+    const dispatch = useAppDispatch();
+    const { allPizzas, totalPrice, totalCount } = useAppSelector(state => state.cart);
 
     const clearCart = () => {
         dispatch(clearAllCart());

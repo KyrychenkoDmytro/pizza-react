@@ -2,11 +2,10 @@ import React from 'react';
 import CartEmpty from './CartEmpty/CartEmpty';
 import CartNotEmpty from './CartNotEmpty/CartNotEmpty';
 
-import { useSelector } from 'react-redux';
+import { useAppSelector } from '../../hooks';
 
 export const Cart: React.FC = () => {
-    const totalPrice = useSelector(// @ts-ignore
-        state => state.cart.totalPrice);
+    const totalPrice = useAppSelector(state => state.cart.totalPrice);
 
     return (
         <>

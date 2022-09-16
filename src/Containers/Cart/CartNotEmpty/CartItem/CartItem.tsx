@@ -2,10 +2,10 @@ import React from 'react';
 import styles from './CartItem.module.scss';
 import { allTypes } from '../../../Home/PizzaBlock/PizzaBlock';
 
-import { useDispatch } from 'react-redux';
-import { addPizzaToCart, minusPizzaFromCart, removePizzaFromCart } from '../../../../store/reducers/cartSlice';
+import { addPizzaToCart, minusPizzaFromCart, removePizzaFromCart } from '../../../../redux/reducers/cartSlice';
+import { useAppDispatch } from '../../../../hooks';
 
-type CartItemProps = {
+export type CartItemProps = {
     id: string;
     imageUrl: string;
     price: number;
@@ -17,7 +17,7 @@ type CartItemProps = {
 }
 
 const CartItem: React.FC<CartItemProps> = (props) => {
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
 
     const { id, imageUrl, price, title, type, sizes, size, count } = props;
 
