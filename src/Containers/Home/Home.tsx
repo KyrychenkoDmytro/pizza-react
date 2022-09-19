@@ -37,13 +37,6 @@ const Home: React.FC = () => {
     }, [sortId, categoryId, currentPage, navigate]);
 
     // When the page is reloaded, the data from the url is put into redux and cancels the fetch request according to the old parameters.
-
-    // type SearchParams = {
-    //     sortBy: string;
-    //     category: number;
-    //     page: number;
-    // }  
-
     React.useEffect(() => {
         if (window.location.search) {
             const params = qs.parse(window.location.search.substring(1));

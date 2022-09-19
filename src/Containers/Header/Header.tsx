@@ -3,12 +3,25 @@ import styles from './Header.module.scss';
 import Search from '../Search/Search';
 
 import { Link, useLocation } from 'react-router-dom';
-import { useAppSelector } from '../../hooks';
+import { useAppSelector, useAppDispatch } from '../../hooks';
+import { addPizzasToLocalStorage } from '../../redux/reducers/cartSlice';
 
 const Header: React.FC = () => {
     const location = useLocation();
-    const totalPrice = useAppSelector(state => state.cart.totalPrice);
-    const totalCount = useAppSelector(state => state.cart.totalCount);
+    const {totalPrice, totalCount, allPizzas} = useAppSelector(state => state.cart);
+    const dispatch = useAppDispatch();
+    
+    React.useEffect(()=> {
+        const items = localStorage.getItem('items');
+        if(items) {
+            dispatch(addPizzasToLocalStorage(JSON.parse(items)))
+        }
+    },[dispatch]);
+    
+    React.useEffect(()=> {
+            localStorage.setItem('items', JSON.stringify(allPizzas));
+    },[allPizzas]);
+
     return (
         <>
             <div className={styles.Header}>
