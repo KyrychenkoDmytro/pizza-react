@@ -2,7 +2,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 export type SortIdState = {
     name: string;
-    property: 'rating' | 'price' | 'title';
+    property: 'rating' | 'price' | 'title' | '-rating' | '-price' | '-title';
 }
 
 export type UrlParams = {
@@ -16,13 +16,15 @@ interface HomeSliceState {
     categoryId: number;
     searchValue: string;
     currentPage: number;
+    isSearch: boolean;
 }
 
 const initialState: HomeSliceState = {
-    sortId: { name: 'Popularity', property: 'rating' },
+    sortId: { name: 'Popular(DESC)', property: 'rating' },
     categoryId: 0,
     searchValue: '',
     currentPage: 1,
+    isSearch: false,
 }
 
 export const homeSlice = createSlice({
@@ -45,11 +47,14 @@ export const homeSlice = createSlice({
             state.currentPage = Number(action.payload.currentPage);
             state.categoryId = Number(action.payload.categoryId);
             state.sortId = action.payload.sortId;
+        },
+        isSearchUrl:(state,action : PayloadAction<boolean>) => {
+            state.isSearch = action.payload;
         }
     },
 });
 
 
-export const { saveSortId, saveCategoryId, saveSearchValue, saveCurrentPage, saveUrlParams } = homeSlice.actions;
+export const { saveSortId, saveCategoryId, saveSearchValue, saveCurrentPage, saveUrlParams, isSearchUrl } = homeSlice.actions;
 
 export default homeSlice.reducer;

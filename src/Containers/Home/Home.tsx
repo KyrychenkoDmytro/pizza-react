@@ -12,7 +12,7 @@ import { useNavigate } from 'react-router-dom';
 import { allSorts } from './Sort/Sort';
 
 import { useAppDispatch, useAppSelector } from '../../hooks';
-import { saveUrlParams, UrlParams, SortIdState } from '../../redux/reducers/homeSlice';
+import { saveUrlParams, UrlParams, SortIdState, isSearchUrl } from '../../redux/reducers/homeSlice';
 import { fetchPizza, Status } from '../../redux/reducers/pizzaSlice';
 
 const Home: React.FC = () => {
@@ -20,14 +20,14 @@ const Home: React.FC = () => {
     const dispatch = useAppDispatch();
     const isMounted = React.useRef(false);
 
-    const { categoryId, sortId, searchValue, currentPage } = useAppSelector(state => state.home);
+    const { categoryId, sortId, searchValue, currentPage, isSearch } = useAppSelector(state => state.home);
     const { items, status } = useAppSelector(state => state.pizza);
 
     // If there was a first render, write the sort parameters to a string.
     React.useEffect(() => {
         if (isMounted.current) {
             const queryString = qs.stringify({
-                sortBy: sortId.property,
+                sortBy: sortId.property.replace('-', ''),
                 category: categoryId,
                 page: currentPage
             });
@@ -41,31 +41,38 @@ const Home: React.FC = () => {
         if (window.location.search) {
             const params = qs.parse(window.location.search.substring(1));
             const sort = allSorts.find((obj) => obj.property === params.sortBy);
-                const obj: UrlParams = {
-                    categoryId: Number(params.category),
-                    sortId: sort as SortIdState,
-                    currentPage: Number(params.page),
-                }
+            const obj: UrlParams = {
+                categoryId: Number(params.category),
+                sortId: sort as SortIdState,
+                currentPage: Number(params.page),
+            }
             dispatch(saveUrlParams(obj));
         }
+        dispatch(isSearchUrl(true));
+
     }, [dispatch]);
 
     // Get pizzas
     React.useEffect(() => {
-        const sortBy = `?sortBy=${sortId.property}`;
+        const sortBy = `?sortBy=${sortId.property.replace('-', '')}`;
+        const order = sortId.property.includes('-') ? '&order=asc' : '&order=desc'
         const selectedСategory = categoryId > 0 ? `&category=${categoryId}` : '';
         const search = searchValue ? `&search=${searchValue}` : '';
         const page = `&page=${currentPage}&limit=4`;
 
-        dispatch(
-            fetchPizza({
-                sortBy,
-                selectedСategory,
-                search,
-                page
-            }));
+        if (isSearch) {
+            dispatch(
+                fetchPizza({
+                    sortBy,
+                    order,
+                    selectedСategory,
+                    search,
+                    page
+                }));
+        }
 
-    }, [dispatch, sortId.property, categoryId, searchValue, currentPage]);
+    }, [dispatch, sortId.property, categoryId, searchValue, currentPage, isSearch]);
+
 
     return (
         <div className={styles.Home}>

@@ -4,9 +4,12 @@ import { saveSortId, SortIdState } from '../../../redux/reducers/homeSlice';
 import { useAppDispatch, useAppSelector } from '../../../hooks';
 
 export const allSorts: SortIdState[] = [
-    { name: 'Popularity', property: 'rating' },
-    { name: 'Price', property: 'price' },
-    { name: 'Alphabet', property: 'title' }
+    { name: 'Popular(DESC)', property: 'rating' },
+    { name: 'Popular(ASC)', property: '-rating' },
+    { name: 'Price(DESC)', property: 'price' },
+    { name: 'Price(ASC)', property: '-price' },
+    { name: 'Alphabet(DESC)', property: 'title' },
+    { name: 'Alphabet(ASC)', property: '-title' },
 ];
 
 const Sort: React.FC = () => {

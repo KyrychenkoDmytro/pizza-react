@@ -5,8 +5,8 @@ import { PizzaBlockProps } from '../../Containers/Home/PizzaBlock/PizzaBlock';
 export const fetchPizza = createAsyncThunk(
     'pizza/fetchPizzaStatus',
     async (params: Record<string, string>) => {
-        const { sortBy, selectedСategory, search, page } = params;
-        const { data } = await axios.get<PizzaBlockProps[]>(sortBy + selectedСategory + search + page);
+        const { sortBy, order, selectedСategory, search, page } = params;
+        const { data } = await axios.get<PizzaBlockProps[]>(sortBy + order + selectedСategory + search + page);
         return data;
     },
 )
