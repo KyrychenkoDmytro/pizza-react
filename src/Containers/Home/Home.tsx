@@ -27,7 +27,7 @@ const Home: React.FC = () => {
     React.useEffect(() => {
         if (isMounted.current) {
             const queryString = qs.stringify({
-                sortBy: sortId.property.replace('-', ''),
+                sortBy: sortId.property,
                 category: categoryId,
                 page: currentPage
             });
